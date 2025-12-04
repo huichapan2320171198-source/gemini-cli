@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: Comunicación y Narrativa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #F3F4F6;
+            color: #1F2937;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            height: 350px;
+            margin: 0 auto;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: transform 0.2s;
+        }
+        .card-shadow:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .glass-header {
+            background: rgba(49, 46, 129, 0.95);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="bg-slate-50">
+
+    <!-- Navigation / Header -->
+    <header class="glass-header text-white sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-xl md:text-2xl font-black tracking-tight">LITERATURA & DEBATE</h1>
+            <nav class="hidden md:flex space-x-6 text-sm font-bold">
+                <a href="#ensayo" class="hover:text-cyan-400 transition-colors">EL ENSAYO</a>
+                <a href="#narrativa" class="hover:text-cyan-400 transition-colors">NARRATIVA</a>
+                <a href="#mundos" class="hover:text-cyan-400 transition-colors">MUNDOS</a>
+                <a href="#debate" class="hover:text-cyan-400 transition-colors">DEBATE</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-indigo-900 text-white py-16 md:py-24">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-6xl font-black mb-6 leading-tight">
+                El Arte de la <span class="text-cyan-400">Palabra</span> y la <span class="text-rose-500">Argumentación</span>
+            </h2>
+            <p class="text-lg md:text-xl text-indigo-200 max-w-3xl mx-auto">
+                Una exploración visual de la estructura del ensayo, los secretos de la narrativa, la construcción de mundos ficticios y las reglas del debate formal.
+            </p>
+        </div>
+    </section>
+
+    <!-- I. EL ENSAYO -->
+    <section id="ensayo" class="py-16 container mx-auto px-4">
+        <div class="flex items-center mb-8">
+            <span class="text-4xl mr-4">📝</span>
+            <div>
+                <h3 class="text-3xl font-bold text-indigo-900">I. El Ensayo</h3>
+                <p class="text-gray-600">Fundamentos de la argumentación escrita.</p>
+            </div>
+        </div>
+
+        <p class="mb-8 text-lg text-gray-700 leading-relaxed bg-white p-6 rounded-lg shadow-sm border-l-4 border-cyan-500">
+            El ensayo es un género híbrido que combina la subjetividad del autor con el rigor académico. No es simplemente opinar, sino argumentar con estilo, libertad y profundidad sobre cualquier disciplina, desde la ciencia hasta la filosofía.
+        </p>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Chart: Characteristics -->
+            <div class="bg-white p-6 rounded-xl card-shadow">
+                <h4 class="text-xl font-bold text-gray-800 mb-2 border-b pb-2">Características Clave</h4>
+                <p class="text-sm text-gray-500 mb-4">Evaluación de los atributos principales que definen un buen ensayo.</p>
+                <div class="chart-container">
+                    <canvas id="essayCharacteristicsChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Chart: Types -->
+            <div class="bg-white p-6 rounded-xl card-shadow">
+                <h4 class="text-xl font-bold text-gray-800 mb-2 border-b pb-2">Tipos de Ensayo</h4>
+                <p class="text-sm text-gray-500 mb-4">Distribución conceptual de las variantes del ensayo según su intención.</p>
+                <div class="chart-container">
+                    <canvas id="essayTypesChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Structure Cards (HTML/CSS Flow) -->
+        <div class="mt-12">
+            <h4 class="text-xl font-bold text-gray-800 mb-6 text-center">Estructura del Ensayo</h4>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-indigo-50 p-6 rounded-lg border border-indigo-100 text-center">
+                    <div class="text-3xl mb-2">1️⃣</div>
+                    <h5 class="font-bold text-indigo-900 mb-2">Introducción</h5>
+                    <p class="text-sm text-gray-600">Presentación del tema y declaración explícita de la <strong>Tesis</strong>.</p>
+                </div>
+                <div class="bg-indigo-50 p-6 rounded-lg border border-indigo-100 text-center relative">
+                    <div class="text-3xl mb-2">2️⃣</div>
+                    <h5 class="font-bold text-indigo-900 mb-2">Desarrollo</h5>
+                    <p class="text-sm text-gray-600">Exposición de argumentos, citas y datos. Cada párrafo sustenta una idea.</p>
+                </div>
+                <div class="bg-indigo-50 p-6 rounded-lg border border-indigo-100 text-center">
+                    <div class="text-3xl mb-2">3️⃣</div>
+                    <h5 class="font-bold text-indigo-900 mb-2">Conclusión</h5>
+                    <p class="text-sm text-gray-600">Reafirmación de la tesis y reflexión final para el lector.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- II. NARRATIVA -->
+    <section id="narrativa" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center mb-8">
+                <span class="text-4xl mr-4">🎭</span>
+                <div>
+                    <h3 class="text-3xl font-bold text-indigo-900">II. La Narrativa</h3>
+                    <p class="text-gray-600">El arte de contar historias.</p>
+                </div>
+            </div>
+
+            <p class="mb-8 text-lg text-gray-700 leading-relaxed bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-rose-500">
+                Toda historia necesita una trama, un conflicto que impulse la acción y un ritmo. Pero el corazón de la narrativa reside en quién cuenta la historia (la voz) y quiénes la viven (los personajes).
+            </p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Narrators (HTML Structured List) -->
+                <div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-6">Tipos de Narradores</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-start bg-indigo-50 p-4 rounded-lg">
+                            <div class="bg-indigo-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4 shrink-0">YO</div>
+                            <div>
+                                <h5 class="font-bold text-indigo-900">Homodiegético (1ª Persona)</h5>
+                                <p class="text-sm text-gray-600 mt-1">Es parte de la historia.</p>
+                                <ul class="list-disc list-inside text-xs text-gray-500 mt-2">
+                                    <li><strong>Protagonista:</strong> Cuenta su propia vida.</li>
+                                    <li><strong>Testigo:</strong> Observa y cuenta lo que ve.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="flex items-start bg-rose-50 p-4 rounded-lg">
+                            <div class="bg-rose-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4 shrink-0">ÉL</div>
+                            <div>
+                                <h5 class="font-bold text-rose-900">Heterodiegético (3ª Persona)</h5>
+                                <p class="text-sm text-gray-600 mt-1">Está fuera de la historia.</p>
+                                <ul class="list-disc list-inside text-xs text-gray-500 mt-2">
+                                    <li><strong>Omnisciente:</strong> Lo sabe todo (pensamientos, futuro).</li>
+                                    <li><strong>Limitado:</strong> Solo sabe lo que ve un personaje.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart: Characters -->
+                <div class="bg-gray-50 p-6 rounded-xl card-shadow border border-gray-200">
+                    <h4 class="text-xl font-bold text-gray-800 mb-2 border-b pb-2">Arquetipos de Personajes</h4>
+                    <p class="text-sm text-gray-500 mb-4">Comparativa de complejidad y función dentro del relato.</p>
+                    <div class="chart-container">
+                        <canvas id="charactersChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- III. MUNDOS Y ESTRUCTURA -->
+    <section id="mundos" class="py-16 container mx-auto px-4">
+        <div class="flex items-center mb-8">
+            <span class="text-4xl mr-4">🌌</span>
+            <div>
+                <h3 class="text-3xl font-bold text-indigo-900">III. Mundos y Estructura</h3>
+                <p class="text-gray-600">Construcción de realidades y tensión dramática.</p>
+            </div>
+        </div>
+
+        <p class="mb-8 text-lg text-gray-700 leading-relaxed bg-white p-6 rounded-lg shadow-sm border-l-4 border-amber-500">
+            Las historias ocurren en espacios con reglas propias, desde lo cotidiano hasta lo imposible. Independientemente del mundo, la mayoría sigue un arco dramático clásico diseñado para capturar la atención del lector.
+        </p>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <!-- Plotly 3D Chart: Worlds -->
+            <div class="bg-white p-6 rounded-xl card-shadow">
+                <h4 class="text-xl font-bold text-gray-800 mb-2 border-b pb-2">Tipos de Mundos Narrativos</h4>
+                <p class="text-sm text-gray-500 mb-4">Visualización abstracta de los entornos ficcionales.</p>
+                <div id="worldsPlotly" class="chart-container"></div>
+            </div>
+
+            <!-- Chart: Freytag's Pyramid -->
+            <div class="bg-white p-6 rounded-xl card-shadow">
+                <h4 class="text-xl font-bold text-gray-800 mb-2 border-b pb-2">Mapeo de la Historia (Arco Dramático)</h4>
+                <p class="text-sm text-gray-500 mb-4">Evolución de la tensión a través de las 5 etapas clásicas.</p>
+                <div class="chart-container">
+                    <canvas id="storyArcChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Endings Cards -->
+        <h4 class="text-xl font-bold text-gray-800 mb-6 text-center">Tipos de Finales</h4>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-6 bg-gray-800 text-white rounded-lg text-center">
+                <div class="text-3xl mb-2">🔒</div>
+                <h5 class="font-bold text-amber-400">Final Cerrado</h5>
+                <p class="text-sm mt-2">Todo se resuelve. No hay dudas.</p>
+            </div>
+            <div class="p-6 bg-gray-800 text-white rounded-lg text-center">
+                <div class="text-3xl mb-2">🔓</div>
+                <h5 class="font-bold text-amber-400">Final Abierto</h5>
+                <p class="text-sm mt-2">El lector debe imaginar el desenlace.</p>
+            </div>
+            <div class="p-6 bg-gray-800 text-white rounded-lg text-center">
+                <div class="text-3xl mb-2">🎁</div>
+                <h5 class="font-bold text-amber-400">Final Sorpresa</h5>
+                <p class="text-sm mt-2">Giro radical que cambia el sentido.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- IV. DEBATE -->
+    <section id="debate" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center mb-8">
+                <span class="text-4xl mr-4">🗣️</span>
+                <div>
+                    <h3 class="text-3xl font-bold text-indigo-900">IV. El Debate</h3>
+                    <p class="text-gray-600">El arte de la discusión formal.</p>
+                </div>
+            </div>
+
+            <p class="mb-8 text-lg text-gray-700 leading-relaxed bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-indigo-500">
+                El debate no es una pelea, sino una técnica estructurada de comunicación. Requiere respeto, evidencia sólida y roles definidos para persuadir a una audiencia sobre un tema controversial.
+            </p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Chart: Debate Elements -->
+                <div class="bg-gray-50 p-6 rounded-xl card-shadow border border-gray-200">
+                    <h4 class="text-xl font-bold text-gray-800 mb-2 border-b pb-2">Elementos Fundamentales</h4>
+                    <p class="text-sm text-gray-500 mb-4">Componentes esenciales para un debate efectivo.</p>
+                    <div class="chart-container">
+                        <canvas id="debateElementsChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Comparison Table (HTML) -->
+                <div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-6">Tipos de Debate</h4>
+                    <div class="overflow-hidden rounded-lg border border-gray-200">
+                        <table class="min-w-full bg-white">
+                            <thead class="bg-indigo-900 text-white">
+                                <tr>
+                                    <th class="py-3 px-4 text-left font-semibold">Característica</th>
+                                    <th class="py-3 px-4 text-left font-semibold">Formal</th>
+                                    <th class="py-3 px-4 text-left font-semibold">Informal</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-700 text-sm">
+                                <tr class="border-b">
+                                    <td class="py-3 px-4 font-bold">Reglas</td>
+                                    <td class="py-3 px-4 text-indigo-700">Estrictas</td>
+                                    <td class="py-3 px-4 text-rose-600">Flexibles</td>
+                                </tr>
+                                <tr class="border-b bg-gray-50">
+                                    <td class="py-3 px-4 font-bold">Moderador</td>
+                                    <td class="py-3 px-4 text-indigo-700">Presente y activo</td>
+                                    <td class="py-3 px-4 text-rose-600">A menudo ausente</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="py-3 px-4 font-bold">Estructura</td>
+                                    <td class="py-3 px-4 text-indigo-700">Tiempos definidos</td>
+                                    <td class="py-3 px-4 text-rose-600">Espontánea</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="py-3 px-4 font-bold">Ejemplo</td>
+                                    <td class="py-3 px-4">Parlamento</td>
+                                    <td class="py-3 px-4">Tertulia familiar</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mt-6 p-4 bg-indigo-50 rounded-lg">
+                        <h5 class="font-bold text-indigo-900 mb-2">💡 Clave del Éxito</h5>
+                        <p class="text-sm text-gray-700">
+                            Independientemente del tipo, la <strong>Argumentación Sólida</strong> y el <strong>Respeto</strong> son no negociables. Se atacan las ideas, nunca a las personas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-indigo-950 text-white py-8 text-center">
+        <p class="opacity-70 text-sm">Infografía generada basada en "Infografía Integral de Comunicación y Narrativa".</p>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // --- 1. Utility: Label Splitting for Multi-line ---
+        function splitLabel(label, maxLength = 16) {
+            if (label.length <= maxLength) return label;
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = words[0];
+
+            for (let i = 1; i < words.length; i++) {
+                if ((currentLine + ' ' + words[i]).length <= maxLength) {
+                    currentLine += ' ' + words[i];
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        }
+
+        // --- 2. Chart.js Global Config ---
+        Chart.defaults.font.family = "'Roboto', sans-serif";
+        Chart.defaults.color = '#374151';
+        
+        const commonTooltip = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        // --- 3. Essay Characteristics (Radar) ---
+        const ctxEssayChar = document.getElementById('essayCharacteristicsChart').getContext('2d');
+        const labelsEssayChar = ['Brevedad', 'Subjetividad', 'Variedad Temática', 'Libertad Formal', 'Diálogo'];
+        new Chart(ctxEssayChar, {
+            type: 'radar',
+            data: {
+                labels: labelsEssayChar.map(l => splitLabel(l)),
+                datasets: [{
+                    label: 'Nivel de Importancia',
+                    data: [7, 9, 10, 8, 9], // Mock intensity values based on description
+                    backgroundColor: 'rgba(6, 182, 212, 0.2)', // Cyan transparent
+                    borderColor: '#06B6D4',
+                    pointBackgroundColor: '#312E81',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#312E81'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(0,0,0,0.1)' },
+                        grid: { color: 'rgba(0,0,0,0.1)' },
+                        pointLabels: {
+                            font: { size: 12, weight: 'bold' },
+                            color: '#312E81'
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 10,
+                        ticks: { display: false } // Hide numbers for cleaner look
+                    }
+                },
+                plugins: {
+                    tooltip: commonTooltip,
+                    legend: { display: false }
+                }
+            }
+        });
+
+        // --- 4. Essay Types (Doughnut) ---
+        const ctxEssayTypes = document.getElementById('essayTypesChart').getContext('2d');
+        const labelsEssayTypes = ['Expositivo (Informar)', 'Argumentativo (Persuadir)', 'Científico (Comprobar)', 'Crítico (Valorar)'];
+        new Chart(ctxEssayTypes, {
+            type: 'doughnut',
+            data: {
+                labels: labelsEssayTypes.map(l => splitLabel(l, 20)),
+                datasets: [{
+                    data: [25, 25, 25, 25], // Equal weight conceptually
+                    backgroundColor: ['#06B6D4', '#312E81', '#E11D48', '#F59E0B'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '60%',
+                plugins: {
+                    tooltip: commonTooltip,
+                    legend: {
+                        position: 'right',
+                        labels: { boxWidth: 15, font: { size: 11 } }
+                    }
+                }
+            }
+        });
+
+        // --- 5. Characters Types (Bar) ---
+        const ctxChar = document.getElementById('charactersChart').getContext('2d');
+        const labelsChar = ['Protagonista', 'Antagonista', 'Secundarios', 'Planos (Simples)', 'Redondos (Complejos)'];
+        new Chart(ctxChar, {
+            type: 'bar',
+            data: {
+                labels: labelsChar.map(l => splitLabel(l)),
+                datasets: [{
+                    label: 'Impacto en la Trama',
+                    data: [10, 9, 6, 4, 8], // Conceptual weight
+                    backgroundColor: [
+                        '#312E81', // Protagonist
+                        '#E11D48', // Antagonist
+                        '#F59E0B', // Secondary
+                        '#9CA3AF', // Flat
+                        '#06B6D4'  // Round
+                    ],
+                    borderRadius: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        display: false
+                    },
+                    x: {
+                        grid: { display: false }
+                    }
+                },
+                plugins: {
+                    tooltip: commonTooltip,
+                    legend: { display: false }
+                }
+            }
+        });
+
+        // --- 6. Plotly 3D Scatter: Narrative Worlds ---
+        // Using Plotly to satisfy advanced/WebGL requirement and visualize abstract concepts
+        const trace1 = {
+            x: [1, 5, 8, 3], // Reality Level
+            y: [1, 8, 2, 9], // Magic Level
+            z: [1, 5, 9, 7], // Technology Level
+            mode: 'markers+text',
+            marker: {
+                size: 25,
+                color: ['#10B981', '#E11D48', '#06B6D4', '#F59E0B'], // Green (Real), Rose (Magic), Cyan (SciFi), Amber (Mythic)
+                opacity: 0.8
+            },
+            text: ['Realista', 'Fantástico', 'Ciencia Ficción', 'Mítico'],
+            textposition: 'top center',
+            type: 'scatter3d'
+        };
+
+        const layoutPlotly = {
+            margin: { l: 0, r: 0, b: 0, t: 0 },
+            scene: {
+                xaxis: { title: 'Realidad' },
+                yaxis: { title: 'Magia' },
+                zaxis: { title: 'Tecnología' },
+                camera: { eye: { x: 1.5, y: 1.5, z: 1.2 } }
+            },
+            paper_bgcolor: 'rgba(0,0,0,0)',
+            plot_bgcolor: 'rgba(0,0,0,0)'
+        };
+
+        Plotly.newPlot('worldsPlotly', [trace1], layoutPlotly, {displayModeBar: false, responsive: true});
+
+        // --- 7. Story Arc (Line Chart) ---
+        const ctxArc = document.getElementById('storyArcChart').getContext('2d');
+        const labelsArc = ['Planteamiento', 'Nudo (Ascenso)', 'Clímax', 'Desenlace', 'Resolución'];
+        new Chart(ctxArc, {
+            type: 'line',
+            data: {
+                labels: labelsArc.map(l => splitLabel(l)),
+                datasets: [{
+                    label: 'Nivel de Tensión Dramática',
+                    data: [2, 5, 10, 6, 3], // The classic Freytag curve
+                    fill: true,
+                    backgroundColor: 'rgba(225, 29, 72, 0.1)', // Rose fill
+                    borderColor: '#E11D48',
+                    tension: 0.4, // Smooth curve
+                    pointBackgroundColor: '#312E81',
+                    pointRadius: 6,
+                    pointHoverRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Tensión' },
+                        display: true
+                    },
+                    x: {
+                        grid: { display: false }
+                    }
+                },
+                plugins: {
+                    tooltip: commonTooltip,
+                    legend: { display: false }
+                }
+            }
+        });
+
+        // --- 8. Debate Elements (Polar Area) ---
+        const ctxDebate = document.getElementById('debateElementsChart').getContext('2d');
+        const labelsDebate = ['Participantes', 'Tesis (Idea)', 'Evidencia', 'Refutación', 'Moderador', 'Público'];
+        new Chart(ctxDebate, {
+            type: 'polarArea',
+            data: {
+                labels: labelsDebate.map(l => splitLabel(l)),
+                datasets: [{
+                    data: [5, 5, 4, 4, 3, 3], // Conceptual distribution
+                    backgroundColor: [
+                        'rgba(49, 46, 129, 0.8)', // Indigo
+                        'rgba(6, 182, 212, 0.8)', // Cyan
+                        'rgba(245, 158, 11, 0.8)', // Amber
+                        'rgba(225, 29, 72, 0.8)', // Rose
+                        'rgba(107, 114, 128, 0.8)', // Gray
+                        'rgba(16, 185, 129, 0.8)' // Green
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        ticks: { display: false },
+                        grid: { color: 'rgba(0,0,0,0.1)' }
+                    }
+                },
+                plugins: {
+                    tooltip: commonTooltip,
+                    legend: {
+                        position: 'right',
+                        labels: { boxWidth: 12, font: { size: 11 } }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
