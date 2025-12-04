@@ -41,6 +41,7 @@ export const DEFAULT_MODEL_CONFIGS: ModelConfigServiceConfig = {
           thinkingConfig: {
             thinkingBudget: DEFAULT_THINKING_MODE,
           },
+          temperature: 0,
         },
       },
     },
