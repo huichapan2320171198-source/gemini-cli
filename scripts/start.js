@@ -57,8 +57,6 @@ if (process.env.DEBUG && !sandboxCommand) {
 
 nodeArgs.push(join(root, 'packages', 'cli'));
 nodeArgs.push(...process.argv.slice(2));
-console.log(process.env);
-console.log('hi');
 const env = {
   ...process.env,
   CLI_VERSION: pkg.version,
