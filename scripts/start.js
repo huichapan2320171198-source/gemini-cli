@@ -32,7 +32,7 @@ execSync('node ./scripts/check-build-status.js', {
   cwd: root,
 });
 
-const nodeArgs = [];
+let nodeArgs = [];
 let sandboxCommand = undefined;
 try {
   sandboxCommand = execSync('node scripts/sandbox_command.js', {
@@ -69,6 +69,8 @@ if (process.env.DEBUG) {
   // than the relaunched process making it harder to debug.
   env.GEMINI_CLI_NO_RELAUNCH = 'true';
 }
+
+nodeArgs = [...nodeArgs, '--sandbox', '-p', 'hi'];
 const child = spawn('node', nodeArgs, { stdio: 'inherit', env });
 
 child.on('close', (code) => {
